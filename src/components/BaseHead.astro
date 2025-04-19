@@ -80,3 +80,18 @@ const { title, description, image = '/blog-placeholder.jpg' } = Astro.props
 <meta property="twitter:title" content={title} />
 <meta property="twitter:description" content={description} />
 <meta property="twitter:image" content={new URL(image, Astro.url)} />
+
+<!-- Google tag (gtag.js) -->
+<script
+  async
+  src=`https://www.googletagmanager.com/gtag/js?id=${import.meta.env.GTAG_ID}`
+></script>
+<script>
+  window.dataLayer = window.dataLayer || []
+  function gtag() {
+    dataLayer.push(arguments)
+  }
+  gtag('js', new Date())
+
+  gtag('config', import.meta.env.GTAG_ID)
+</script>
